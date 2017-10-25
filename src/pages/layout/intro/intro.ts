@@ -18,8 +18,8 @@ export class IntroPage {
       console.log(err);
     });
   }
-  gotoLoginPage(){
-    this.navCtrl.push('AfterLoginPage');
+  gotoRegisterPage(){
+    this.navCtrl.push('RegisterPage');
   }
 
 }
