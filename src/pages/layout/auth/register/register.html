@@ -1,9 +1,9 @@
 <ion-header no-border>
-  <ion-navbar transparent color="light">
+  <ion-toolbar transparent color="light">
     <button ion-button (click)="backStep()" class="button2">
       <ion-icon name="arrow-back" color="light"></ion-icon>
     </button>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 <ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}" class="bgcolor">
 
@@ -16,27 +16,27 @@
     <ion-slide>
       <div class="login-container">
           <h1 class="textcolorgrey">Register</h1>
-        <ion-item>
+        <ion-item no-lines>
           <ion-label stacked >First Name</ion-label>
           <ion-input [(ngModel)]="user.firstName" type="text" ></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item no-lines>
           <ion-label stacked >Last Name</ion-label>
           <ion-input [(ngModel)]="user.lastName" type="text" ></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item no-lines>
           <ion-label stacked >Email</ion-label>
           <ion-input [(ngModel)]="user.email" type="email" ></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item no-lines>
           <ion-label stacked >Mobile</ion-label>
           <ion-input [(ngModel)]="user.mobile" type="number" ></ion-input>
         </ion-item>
 
-        <ion-item class="paddingbottom">
+        <ion-item class="paddingbottom" no-lines>
           <ion-label stacked>Date of birth</ion-label>
           <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="user.dateOfBirth"></ion-datetime>
         </ion-item>

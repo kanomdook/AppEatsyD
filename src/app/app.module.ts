@@ -28,6 +28,7 @@ import { GalleryModal } from 'ionic-gallery-modal';
 import { ZoomableImage } from 'ionic-gallery-modal';
 import { IntroService } from '../pages/layout/intro/intro.service';
 import { HttpModule } from '@angular/http';
+import { RegisterService } from '../pages/layout/auth/register/register.service';
 
 
 //********** firebase configuration  ************ */
@@ -71,7 +72,8 @@ export const config = {
     AuthData,
     RadioPlayer,
     Firebase,
-    IntroService
+    IntroService,
+    RegisterService
   ]
 })
 export class AppModule { }
