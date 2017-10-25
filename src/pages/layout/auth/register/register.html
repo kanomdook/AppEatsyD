@@ -1,61 +1,97 @@
-
 <ion-header no-border>
   <ion-navbar transparent color="light">
-    <button ion-button menuToggle>
-      <ion-icon name="menu" color="light"></ion-icon>
+    <button ion-button (click)="backStep()" class="button2">
+      <ion-icon name="arrow-back" color="light"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
+<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}" class="bgcolor">
 
-<ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
-  <div class="login-container">
-    <img class="logo" src="./assets/medium_150.70391061453px_1202562_easyicon.net.png" />
-    <!--*********** Form ***********-->
 
-    <form [formGroup]="registerForm" (submit)="registerUser()" novalidate>
+  <!-- <img class="logo" src="./assets/medium_150.70391061453px_1202562_easyicon.net.png" /> -->
+  <!--*********** Form ***********-->
 
-      <ion-item>
-        <ion-label stacked>Name</ion-label>
-        <ion-input tappable formControlName="profileName" type="text" placeholder="Your name" [class.invalid]="!registerForm.controls.profileName.valid && registerForm.controls.profileName.dirty"></ion-input>
+  <!-- <form [formGroup]="registerForm" (submit)="registerUser()" novalidate> -->
+  <ion-slides pager="false">
+    <ion-slide>
+      <div class="login-container">
+          <h1 class="textcolorgrey">Register</h1>
+        <ion-item>
+          <ion-label stacked >First Name</ion-label>
+          <ion-input [(ngModel)]="user.firstName" type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked >Last Name</ion-label>
+          <ion-input [(ngModel)]="user.lastName" type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked >Email</ion-label>
+          <ion-input [(ngModel)]="user.email" type="email" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked >Mobile</ion-label>
+          <ion-input [(ngModel)]="user.mobile" type="number" ></ion-input>
+        </ion-item>
+
+        <ion-item class="paddingbottom">
+          <ion-label stacked>Date of birth</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="user.dateOfBirth"></ion-datetime>
+        </ion-item>
+        <button ion-button full  color="blue2" (click)="nextStep()" class="margintop">
+            Next
+          </button>
+          
+        <!-- <ion-item>
+      <ion-label stacked class="textcolorgrey">Password</ion-label>
+      <ion-input type="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item class="paddingbottom">
+      <ion-label stacked class="textcolorgrey">Confirm password</ion-label>
+      <ion-input type="password" placeholder="Confirm password"></ion-input>
+    </ion-item> -->
+        <!-- </form> -->
+        
+      </div>
+    </ion-slide>
+
+    <!--slide2-->
+    <ion-slide>
+      <div class="login-container">
+        <h1 class="textcolorgrey">Register</h1>
+        <ion-item>
+          <ion-label stacked class="">Username</ion-label>
+          <ion-input [(ngModel)]="user.username" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked class="">Password</ion-label>
+          <ion-input [(ngModel)]="user.password" type="password" ></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label stacked class="">Confirm Password</ion-label>
+          <ion-input [(ngModel)]="user.confirmPassword" type="password"></ion-input>
+        </ion-item>
+        <!-- <ion-item>
+        <ion-label stacked class="textcolorgrey">Password</ion-label>
+        <ion-input type="password" placeholder="Password"></ion-input>
       </ion-item>
-
-      <ion-item>
-        <ion-label stacked>Email</ion-label>
-        <ion-input tappable formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!registerForm.controls.email.valid && registerForm.controls.email.dirty"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label stacked>Phone</ion-label>
-        <ion-input tappable formControlName="phone"  type="tel" placeholder="Phone number" [class.invalid]="!registerForm.controls.phone.valid && registerForm.controls.phone.dirty"></ion-input>
-      </ion-item>
-
-
-
-
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input tappable formControlName="password" type="password" placeholder="Your password" [class.invalid]="!registerForm.controls.password.valid && registerForm.controls.password.dirty"></ion-input>
-      </ion-item>
-
-
-      
-      <ion-item class="error-message">
-        <p *ngIf="!registerForm.controls.profileName.valid  &&
-                registerForm.controls.profileName.dirty">*Please enter your name.</p>
-        <p *ngIf="!registerForm.controls.email.valid  &&
-                registerForm.controls.email.dirty">*Please enter a valid email.</p>
-        <p *ngIf="!registerForm.controls.phone.valid  &&
-                registerForm.controls.phone.dirty">*Please enter phone number.</p>
-        <p *ngIf="!registerForm.controls.password.valid  &&
-        registerForm.controls.password.dirty">*Password needs more than 6 characters.</p>
-      </ion-item>
-        <button ion-button full type="submit" color="blue2">
-            Create an Account
+      <ion-item class="paddingbottom">
+        <ion-label stacked class="textcolorgrey">Confirm password</ion-label>
+        <ion-input type="password" placeholder="Confirm password"></ion-input>
+      </ion-item> -->
+        <button ion-button full  color="secondary" (click)="register()" class="margintop">
+          Submit
         </button>
-    </form>
-  </div>
+        <!-- </form> -->
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>
 <ion-footer color="blue2">
 
 </ion-footer>
-

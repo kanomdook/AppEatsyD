@@ -1,3 +1,4 @@
+import { WelcomePage } from '../pages/welcome/welcome';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -42,6 +43,7 @@ export const config = {
     MyApp,
     GalleryModal,
     ZoomableImage,
+    WelcomePage
 
   ],
   imports: [
@@ -57,6 +59,7 @@ export const config = {
     MyApp,
     GalleryModal,
     ZoomableImage,
+    WelcomePage
   ],
   providers: [
     StatusBar,

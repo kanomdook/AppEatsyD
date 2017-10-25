@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { AlertController, IonicPage, LoadingController, NavController, Slides } from 'ionic-angular';
+import { FormBuilder, Validators,ValidatorFn,AbstractControl } from '@angular/forms';
 import { AuthData } from '../../../../providers/auth-data';
-
 
 
 @IonicPage()
@@ -10,11 +9,14 @@ import { AuthData } from '../../../../providers/auth-data';
   selector: 'page-register',
   templateUrl: 'register.html'
 })
+
 export class RegisterPage {
+  @ViewChild(Slides) slides: Slides;
   public registerForm;
   public backgroundImage: any = "./assets/bg2.jpg";
+  user :any = {};
 
-  constructor(public nav: NavController, public authData: AuthData, public fb: FormBuilder, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public authData: AuthData, public fb: FormBuilder, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
     
       let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
       
@@ -23,8 +25,9 @@ export class RegisterPage {
             profileName: ['', Validators.compose([Validators.minLength(2), Validators.required])],
             phone: ['', Validators.compose([Validators.minLength(6), Validators.required])],
             password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-
+            
       });
+      
   
   }
 
@@ -48,7 +51,7 @@ export class RegisterPage {
           this.registerForm.value.phone)
       .then(() => {
           loadingPopup.dismiss();
-          this.nav.setRoot('AfterLoginPage');
+          this.navCtrl.setRoot('AfterLoginPage');
       }, (error) => { 
          var errorMessage: string = error.message;
           loadingPopup.dismiss();
@@ -64,4 +67,15 @@ export class RegisterPage {
     });
     alert.present();
   }
+
+register(){
+  console.log(this.user);
+}
+nextStep(){
+this.slides.slideNext();
+}
+backStep(){
+  this.slides.slidePrev();
+  }
+
 }
