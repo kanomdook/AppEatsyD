@@ -25,6 +25,8 @@ import { Firebase } from '@ionic-native/firebase';
 //*********** Image Gallery **************/
 import { GalleryModal } from 'ionic-gallery-modal';
 import { ZoomableImage } from 'ionic-gallery-modal';
+import { IntroService } from '../pages/layout/intro/intro.service';
+import { HttpModule } from '@angular/http';
 
 
 //********** firebase configuration  ************ */
@@ -47,7 +49,7 @@ export const config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-
+    HttpModule,
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule
@@ -65,7 +67,8 @@ export const config = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthData,
     RadioPlayer,
-    Firebase
+    Firebase,
+    IntroService
   ]
 })
 export class AppModule { }
