@@ -71,11 +71,16 @@ export class RegisterPage {
 
   register() {
     console.log(this.user);
-    this.registerService.signup(this.user).then(data => {
-      console.log(data);
-    }).catch(err => {
-      console.log(err);
-    });
+    if (this.user.password == this.user.confirmPassword) {
+      this.registerService.signup(this.user).then(data => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err);
+      });
+    } else {
+      alert('รหัสผ่านไม่ตรงกัน');
+    }
+
   }
   nextStep() {
     this.slides.slideNext();
