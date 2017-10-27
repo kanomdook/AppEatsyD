@@ -1,5 +1,6 @@
+import { WelcomePage } from '../../../welcome/welcome';
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, IonicPage, LoadingController, NavController, Slides } from 'ionic-angular';
+import { AlertController, IonicPage, LoadingController, ModalController, NavController, Slides } from 'ionic-angular';
 import { FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { AuthData } from '../../../../providers/auth-data';
 import { RegisterService } from './register.service';
@@ -17,7 +18,13 @@ export class RegisterPage {
   public backgroundImage: any = "./assets/bg2.jpg";
   user: any = {};
 
-  constructor(private registerService: RegisterService, public navCtrl: NavController, public authData: AuthData, public fb: FormBuilder, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(private registerService: RegisterService,
+    public navCtrl: NavController,
+    public authData: AuthData,
+    public fb: FormBuilder,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController) {
 
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
@@ -74,6 +81,10 @@ export class RegisterPage {
     if (this.user.password == this.user.confirmPassword) {
       this.registerService.signup(this.user).then(data => {
         console.log(data);
+      
+          let profileModal = this.modalCtrl.create(WelcomePage);
+          profileModal.present();
+        
       }).catch(err => {
         console.log(err);
       });
