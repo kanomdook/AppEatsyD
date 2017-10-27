@@ -1,11 +1,24 @@
 page-welcome {
-.bgcolor{
-background-color: yellow !important;
-}
-h1{
-    text-align: center;
-}
-.margintop{
-    margin-top: 15vh;
-}
+    ion-content {
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-color: transparent;
+    }
+    .bgcolor {
+        background-color: yellow !important;
+    }
+    h1 {
+        text-align: center;
+        color: rgb(2, 2, 2);
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.274);
+    }
+    .margintop {
+        margin-top: 15vh;
+    }
+    .btncent {
+        text-align: center;
+    }
+    .paddingtop{
+        padding-top: 87vh;
+    }
 }
