@@ -13,18 +13,20 @@
 </ion-header>
 
 
-<ion-content no-bounce class="">
+<ion-content no-bounce [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}" class="bgcolor">
   <ion-grid>
     <ion-row>
       <ion-col>
-<h1>Welcome to EatsyD</h1>
-<h1>Free 20 Coin</h1>
-<img src="https://101clipart.com/wp-content/uploads/04/Animated%20Clip%20Art%20Money%2030.png">
+<!-- <h1>Welcome to EatsyD</h1>
+<h1>Free 20 Coin</h1> -->
+<!-- <img src="./assets/coin.png"> -->
 </ion-col>
 </ion-row>
-<ion-row class="">
-    <ion-col>
-        <button ion-button full>OK</button>
+<ion-row>
+    <ion-col class="paddingtop">
+        <ion-fab right bottom>
+            <button ion-fab color="danger">Get it</button>
+          </ion-fab>
 </ion-col>
 </ion-row>
 </ion-grid>

@@ -13,6 +13,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
+  public backgroundImage: any = "./assets/Welcome.jpg";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
