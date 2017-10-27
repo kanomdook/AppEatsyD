@@ -68,7 +68,7 @@ export class MyApp {
                 {name:'Action sheet',component:'ActionsheetPage'},
                 {name:'Alert',component:'AlertPage'},
                 {name:'Animation',component:'AnimationsPage'},
-
+                
                 {name:'Button',component:'ButtonPage'},
                 {name:'Datetime',component:'DatetimePage'},
                 {name:'Fab', component:'FabPage'},
