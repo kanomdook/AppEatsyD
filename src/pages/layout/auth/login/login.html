@@ -9,9 +9,9 @@
 <ion-content [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
   <div class="login-container">
     <img class="logo" src="./assets/medium_150.70391061453px_1202562_easyicon.net.png" />
-    
+
     <!--*********** Form ***********-->
-    <form [formGroup]="loginForm" (submit)="login()" novalidate>
+    <!-- <form [formGroup]="loginForm" (submit)="login()" novalidate>
       <ion-item>
         <ion-label floating>Username</ion-label>
         <ion-input tappable color="light" #email type="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid &&loginForm.controls.email.dirty">
@@ -38,10 +38,27 @@
             <ion-icon name="ios-create"></ion-icon> Create new account
         </button>
       </div>
-    </form>
+    </form> -->
+    <ion-item no-lines>
+      <ion-label stacked>Username</ion-label>
+      <ion-input [(ngModel)]="user.username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label stacked>Password</ion-label>
+      <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+    </ion-item>
+
+    <div class="submit-box">
+      <button ion-button block color="blue2" (click)="login()">Log in</button>
+
+      <button ion-button type="button" block icon-left color="light" outline (click)="createAccount()" margin-top>
+        <ion-icon name="ios-create"></ion-icon> Create new account
+      </button>
+    </div>
   </div>
 
 </ion-content>
 <ion-footer>
-  <button class="bottom" ion-button  type="button"  clear full color="light" (click)="forgot()">Forgot your password? </button>
+  <button class="bottom" ion-button type="button" clear full color="light" (click)="forgot()">Forgot your password? </button>
 </ion-footer>

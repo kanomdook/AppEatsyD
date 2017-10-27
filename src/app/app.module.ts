@@ -29,6 +29,8 @@ import { ZoomableImage } from 'ionic-gallery-modal';
 import { IntroService } from '../pages/layout/intro/intro.service';
 import { HttpModule } from '@angular/http';
 import { RegisterService } from '../pages/layout/auth/register/register.service';
+import { Auth } from '../providers/auth';
+import { Server } from '../providers/server';
 
 
 //********** firebase configuration  ************ */
@@ -73,7 +75,9 @@ export const config = {
     RadioPlayer,
     Firebase,
     IntroService,
-    RegisterService
+    RegisterService,
+    Auth,
+    Server
   ]
 })
 export class AppModule { }

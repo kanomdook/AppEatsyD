@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { IntroService } from './intro.service';
 import { AfterLoginPage } from '../auth/after-login/after-login';
+import { Auth } from '../../../providers/auth';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ import { AfterLoginPage } from '../auth/after-login/after-login';
 })
 export class IntroPage {
   private greeting: Array<any> = [];
-  constructor(public navCtrl: NavController, private introService: IntroService) {
+  constructor(public auth: Auth, public navCtrl: NavController, private introService: IntroService) {
     let greetingID = '59f051e4991a161100378e5c';
     this.introService.getData(greetingID).then(data => {
       this.greeting = data.images;
@@ -18,8 +19,12 @@ export class IntroPage {
       console.log(err);
     });
   }
-  gotoRegisterPage(){
-    this.navCtrl.push('RegisterPage');
+  gotoRegisterPage() {
+    if (this.auth.isLogedin() === true) {
+      console.log('Loggedin....:)');
+    } else {
+      this.navCtrl.push('LoginPage');
+    }
   }
 
 }
