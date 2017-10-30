@@ -61,14 +61,20 @@ export class LoginPage {
     this.fbk.login(['public_profile', 'email'])
       .then((res: FacebookLoginResponse) =>
         this.fbk.api('me?fields=email,id,name', null).then((res: FacebookLoginResponse) =>
-          alert(JSON.stringify(res)))
+          this.facebookLoginService(res))
           .catch(e => {
-            alert(JSON.stringify(res));
+            alert(JSON.stringify(e));
           })
       )
       .catch(e => {
         alert(JSON.stringify(e))
       });
+  }
+
+  facebookLoginService(facebookData){
+    this.auth.fbLogin(facebookData).subscribe(data =>{
+      alert(JSON.stringify(data));
+    });
   }
 
   forgot() {

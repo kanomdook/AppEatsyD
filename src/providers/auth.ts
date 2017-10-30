@@ -29,6 +29,14 @@ export class Auth {
         });
     }
 
+    fbLogin(facebookData) {
+        return this.http.post(this.server.url + 'api/auth/signin', { facebookData: facebookData, facebookLogin: true }).map(res => {
+            let body = res.json();
+            window.localStorage.setItem('token', body.loginToken);
+            return body || {};
+        });
+    }
+
     logout() {
         window.localStorage.removeItem('token');
         return true;
