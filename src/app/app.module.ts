@@ -7,7 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { MyApp } from './app.component';
 
 //***********  Angularfire2 v4 **************/
@@ -79,7 +79,8 @@ export const config = {
     IntroService,
     RegisterService,
     Auth,
-    Server
+    Server,
+    Facebook
   ]
 })
 export class AppModule { }

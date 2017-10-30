@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Auth } from '../../providers/auth';
 
 /**
  * Generated class for the MorePage page.
@@ -14,11 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MorePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private auth: Auth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MorePage');
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }

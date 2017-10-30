@@ -7,7 +7,6 @@ import { Server } from './server';
 export class Auth {
 
     constructor(public http: Http, public server: Server) {
-
     }
 
     AuthHeaders(headers: Headers) {
