@@ -31,6 +31,7 @@ import { HttpModule } from '@angular/http';
 import { RegisterService } from '../pages/layout/auth/register/register.service';
 import { Auth } from '../providers/auth';
 import { Server } from '../providers/server';
+import { TabsPage } from '../pages/tabs/tabs';
 
 
 //********** firebase configuration  ************ */
@@ -48,8 +49,8 @@ export const config = {
     MyApp,
     GalleryModal,
     ZoomableImage,
-    WelcomePage
-
+    WelcomePage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,8 @@ export const config = {
     MyApp,
     GalleryModal,
     ZoomableImage,
-    WelcomePage
+    WelcomePage,
+    TabsPage
   ],
   providers: [
     StatusBar,

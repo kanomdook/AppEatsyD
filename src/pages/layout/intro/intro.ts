@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { IntroService } from './intro.service';
 import { AfterLoginPage } from '../auth/after-login/after-login';
 import { Auth } from '../../../providers/auth';
+import { TabsPage } from '../../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -21,7 +22,7 @@ export class IntroPage {
   }
   gotoRegisterPage() {
     if (this.auth.isLogedin() === true) {
-      console.log('Loggedin....:)');
+      this.navCtrl.setRoot(TabsPage);
     } else {
       this.navCtrl.push('LoginPage');
     }
